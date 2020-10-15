@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/blocs/login/login_bloc.dart';
+import 'package:flutter_login/models/keys.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +41,7 @@ class _UsernameInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.username != current.username,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_usernameInput_textField'),
+          key: const Key(Keys.loginForm_usernameInput_textField),
           onChanged: (username) =>
               context.bloc<LoginBloc>().add(LoginUsernameChanged(username)),
           decoration: InputDecoration(
@@ -60,7 +61,7 @@ class _PasswordInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
         return TextField(
-          key: const Key('loginForm_passwordInput_textField'),
+          key: const Key(Keys.loginForm_passwordInput_textField),
           onChanged: (password) =>
               context.bloc<LoginBloc>().add(LoginPasswordChanged(password)),
           obscureText: true,
@@ -83,7 +84,7 @@ class _LoginButton extends StatelessWidget {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
             : RaisedButton(
-                key: const Key('loginForm_continue_raisedButton'),
+                key: const Key(Keys.loginForm_continue_raisedButton),
                 child: const Text('Login'),
                 onPressed: state.status.isValidated
                     ? () {

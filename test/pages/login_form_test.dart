@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/blocs/login/login_bloc.dart';
+import 'package:flutter_login/models/keys.dart';
 import 'package:flutter_login/pages/login_form.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formz/formz.dart';
@@ -33,7 +34,7 @@ void main() {
         ),
       );
       await tester.enterText(
-        find.byKey(const Key('loginForm_usernameInput_textField')),
+        find.byKey(const Key(Keys.loginForm_usernameInput_textField)),
         username,
       );
       verify(
@@ -57,7 +58,7 @@ void main() {
         ),
       );
       await tester.enterText(
-        find.byKey(const Key('loginForm_passwordInput_textField')),
+        find.byKey(const Key(Keys.loginForm_passwordInput_textField)),
         password,
       );
       verify(
